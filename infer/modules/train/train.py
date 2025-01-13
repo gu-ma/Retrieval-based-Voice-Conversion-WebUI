@@ -156,7 +156,7 @@ def run(rank, n_gpus, hps, logger: logging.Logger):
         train_dataset,
         num_workers=4,
         shuffle=False,
-        pin_memory=True,
+        pin_memory=False,
         collate_fn=collate_fn,
         batch_sampler=train_sampler,
         persistent_workers=True,
