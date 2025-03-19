@@ -1,14 +1,14 @@
+name: docker-misc-${CONTAINER_NAME}
 services:
   rvc:
-    image: rvc-webui:latest
-    container_name: rvc-webui
-    build: .s
+    image: ${CONTAINER_NAME}:latest
+    container_name: ${CONTAINER_NAME}
+    build: .
     working_dir: /app
     volumes:
       - .:/app
       - ${HF_HOME}:/root/.cache/huggingface
       - ${TORCH_HOME}:/root/.cache/torch
-
     ports:
       - ${RVC_WEBUI_PORT}:7865
     command: [ "python", "infer-web.py" ]
