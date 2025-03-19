@@ -6,9 +6,11 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-      - ${HOME}/.cache:/root/.cache
+      - ${HF_HOME}:/root/.cache/huggingface
+      - ${TORCH_HOME}:/root/.cache/torch
+
     ports:
-      - 8202:7865
+      - ${RVC_WEBUI_PORT}:7865
     command: [ "python", "infer-web.py" ]
     shm_size: "2g"
     tty: true
